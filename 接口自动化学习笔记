@@ -1,0 +1,12 @@
+接口自动化学习笔记
+1.安装requestsLibrary、requests
+先安装requests再安装requestLibrary
+
+2.requestsLibrary常用关键字
+Create Session: 创建一个session，连接某个服务器
+Create Ntlm Session: 也是创建一个session，只不过加上了域、用户名、密码用于NTLM认证。
+Get Request: 通过GET方式发起请求。
+Post Request: 通过POST方式发起请求。
+Head Request: 发送一个HEAD请求。
+TO Json: 将文本转换成json对象。
+
