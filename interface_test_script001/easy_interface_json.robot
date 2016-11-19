@@ -54,6 +54,16 @@ A easy case of XML Data
 |  | ${a} | Element To String | ${responsedata} |
 |  | Delete All Sessions |
 
-
-
-
+A easy case of get method with auto login
+|  | #用户密码 |
+|  | ${auth} | Create List | ok | python |
+|  | Create Session | api | http://localhost:8000 | | | ${auth} |
+|  | ${addr} | Get Request | api | 401 |
+|  | Comment | Should Be Equal As Strings | ${addr.status_code} | 200 |
+|  | Log | ${addr.content} |
+|  | ${responsedata} | To Json | ${addr.content} |
+|  | ${keys} | Get Dictionary Keys | ${responsedata} |
+|  | ${items} | Get Dictionary Items | ${responsedata} |
+|  | ${values} | Get Dictionary Values | ${responsedata} |
+|  | ${str} | Get From Dictionary | ${responsedata} | pass |
+|  | Delete All Sessions |
