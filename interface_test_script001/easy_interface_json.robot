@@ -67,3 +67,19 @@ A easy case of get method with auto login
 |  | ${values} | Get Dictionary Values | ${responsedata} |
 |  | ${str} | Get From Dictionary | ${responsedata} | pass |
 |  | Delete All Sessions |
+
+
+A post method request
+|  | ${dict} | Create Dictionary | Content-Type=application/x-www-form-urlencoded |
+|  | Create Session | api | http://localhost:8000 | ${dict} |
+|  | ${data} | Create Dictionary | username=qitao | password=qt |
+|  | ${addr} | Post Request | api | post | data=${data} |
+|  | Comment | Should Be Equal As Strings | ${addr.status_code} | 200 |
+|  | Log | ${addr.content} |
+|  | Log | ${addr.json()} |
+|  | ${responsedata} | To Json | ${addr.content} |
+|  | ${keys} | Get Dictionary Keys | ${responsedata} |
+|  | ${items} | Get Dictionary Items | ${responsedata} |
+|  | ${values} | Get Dictionary Values | ${responsedata} |
+|  | ${str} | Get From Dictionary | ${responsedata} | username |
+|  | Delete All Sessions |
